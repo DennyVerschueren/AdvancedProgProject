@@ -10,11 +10,14 @@ public class Game {
     private Integer id;
     private String name;
     private String gameImage;
+    @Column(length = 1000)
+    private String gameDescription;
 
-    public Game(Integer id, String name, String gameImage) {
+    public Game(Integer id, String name, String gameImage, String gameDescription) {
         this.id = id;
         this.name = name;
         this.gameImage = gameImage;
+        this.gameDescription = gameDescription;
     }
 
     public Game() {
@@ -42,5 +45,13 @@ public class Game {
 
     public void setGameImage(String gameImage) {
         this.gameImage = gameImage;
+    }
+
+    public String getGameDescription() {
+        return gameDescription;
+    }
+
+    public void setGameDescription(String gameDescription) {
+        this.gameDescription = gameDescription;
     }
 }

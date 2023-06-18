@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<div sec:authorize="!isAuthenticated()" th:fragment="loginmenu">
+
+  <li>
+    <a class="nav-link text-navtext " th:href="@{/login}">
+      <span>Login</span>
+    </a>
+  </li>
+  <li>
+    <a class="nav-link text-navtext " th:href="@{/signup}">
+      <span>Signup</span>
+    </a>
+  </li>
+</div>
+<div sec:authorize="isAuthenticated()" th:fragment="logoutmenu">
+  <li>
+    <a class="nav-link text-navtext" th:href="@{/profile}">
+      <span sec:authentication="name"></span>
+    </a>
+  </li>
+  <li>
+    <form class="nav-link text-navtext" th:action="@{/user/logout}" method="post">
+      <button>Logout</button>
+    </form>
+  </li>
+</div>
+</body>
+</html>

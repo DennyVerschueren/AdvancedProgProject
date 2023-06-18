@@ -1,6 +1,8 @@
 package be.thomasmore.webapp.controllers;
 
+import be.thomasmore.webapp.model.Game;
 import be.thomasmore.webapp.model.Tournament;
+import be.thomasmore.webapp.repositories.GameRepository;
 import be.thomasmore.webapp.repositories.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +13,6 @@ import java.util.List;
 
 @Controller
 public class TournamentController {
-
     @Autowired
     private TournamentRepository tournamentRepository;
 
@@ -21,4 +22,5 @@ public class TournamentController {
         model.addAttribute("tournaments", tournaments);
         return "tournamentlist";
     }
+
 }
