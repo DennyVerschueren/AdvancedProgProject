@@ -14,10 +14,14 @@ public class Tournament {
     private String name;
     private Date date;
 
-    public Tournament(Integer id, String name, Date date) {
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Game game;
+
+    public Tournament(Integer id, String name, Date date, Game game) {
         this.id = id;
         this.name = name;
         this.date = date;
+        this.game = game;
     }
 
     public Tournament() {
@@ -45,5 +49,13 @@ public class Tournament {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }
