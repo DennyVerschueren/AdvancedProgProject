@@ -1,0 +1,16 @@
+button {
+    background: none;
+    border: none;
+    color: gray;
+}
+
+button:hover{
+    color: lightgray;
+}
+
+.nav-link {
+    color: gray;
+}
+
+
+

@@ -17,6 +17,18 @@ button:hover{
     color: gray;
 }
 
+.filterButton {
+    text-decoration: none;
+    color: gray;
+    background-color: lightgray;
+}
+
+.adminButton {
+    text-decoration: none;
+    color: lavender;
+    background-color: limegreen;
+}
+
 img {
     width: 200px;
     height: 250px;

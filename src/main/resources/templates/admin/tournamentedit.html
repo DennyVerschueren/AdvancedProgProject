@@ -15,7 +15,7 @@
 
 <div class="container mb-4 mt-4">
     <div class="border col-md-6 offset-md-3 p-4">
-        <h2>New Tournament</h2>
+        <h2>Edit Tournament</h2>
         <form th:action="@{|/admin/tournamentedit/*{id}|}" method="post" enctype="multipart/form-data">
             <div class="oneinput">
                 <label for="name" class="info">Name: </label>
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="oneinput saveButtonDiv">
-                <input type="submit" value="create" class="smallButton buttonLook">
+                <input type="submit" value="edit" class="smallButton buttonLook">
             </div>
         </form>
     </div>

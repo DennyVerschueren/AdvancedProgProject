@@ -22,7 +22,7 @@
             <p class="lead" th:text="'Game: ' + ${tournament.getGame().getName()}"></p>
             <div class="row">
                 <div sec:authorize="hasRole('ADMIN')">
-                    <a th:href="@{'/admin/tournamentedit/' + ${tournament.getId()}}">edit</a>
+                    <a class="adminButton" th:href="@{'/admin/tournamentedit/' + ${tournament.getId()}}">edit</a>
                 </div>
                 <div th:if="${prev!=null}">
                     <a class="nextprev" th:href="@{'/tournamentdetails/' + ${prev}}">Previous</a>

@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,13 +20,8 @@ import java.util.Optional;
 public class TournamentController {
     @Autowired
     private TournamentRepository tournamentRepository;
-
-    @GetMapping("/tournaments")
-    public String tournament(Model model) {
-        List<Tournament> tournaments = tournamentRepository.findAllBy();
-        model.addAttribute("tournaments", tournaments);
-        return "tournamentlist";
-    }
+    @Autowired
+    private GameRepository gameRepository;
 
     @GetMapping({"/tournamentdetails", "/tournamentdetails/{id}"})
     public String gameDetails(Model model, Principal principal, @PathVariable(required = false) Integer id) {
@@ -48,5 +45,33 @@ public class TournamentController {
         }
         return "tournamentdetails";
     }
+
+    @GetMapping({"/tournaments", "/tournaments/{x}"})
+    public String tournament(Model model) {
+        List<Tournament> tournaments = tournamentRepository.findAllBy();
+        model.addAttribute("tournaments", tournaments);
+        return "tournamentlist";
+    }
+
+    @GetMapping("/tournaments/filter")
+    public String tournamentListWithFilter(Model model,
+                                      @RequestParam(required = false) String name,
+                                      @RequestParam(required = false) Game game,
+                                      @RequestParam(required = false) boolean free,
+                                      @RequestParam(required = false) Double prizepool,
+                                      @RequestParam(required = false) Date date) {
+        List<Tournament> tournaments = tournamentRepository.findByNameGameFreePrizepoolDate(name, game, free, prizepool, date);
+        model.addAttribute("name", name);
+        model.addAttribute("game", game);
+        model.addAttribute("free", free);
+        model.addAttribute("prizepool", prizepool);
+        model.addAttribute("date", date);
+        model.addAttribute("tournaments", tournaments);
+        List<Game> games = gameRepository.findAllBy();
+        model.addAttribute("games", games);
+        model.addAttribute("showFilter", true);
+        return "tournamentlist";
+    }
+
 
 }

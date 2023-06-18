@@ -25,27 +25,27 @@ VALUES
     (nextval('GAME_SEQ'), 'Overwatch', 'https://i.ytimg.com/vi/GKXS_YA9s7E/maxresdefault.jpg', 'Overwatch is an online team-based game generally played as a first-person shooter. The game featured several different game modes, principally designed around squad-based combat with two opposing teams of five players each.');
 
 INSERT INTO TOURNAMENT
-(ID, name, date, game_id)
+(ID, name, date, game_id, free, prizepool)
 VALUES
-    (nextval('TOURNAMENT_SEQ'), 'Tournament 1', '2024-01-01', 1);
+    (nextval('TOURNAMENT_SEQ'), 'Tournament 1', '2024-01-01', 1, FALSE, 10000);
 
 INSERT INTO TOURNAMENT
-(ID, name, date, game_id)
+(ID, name, date, game_id, free, prizepool)
 VALUES
-    (nextval('TOURNAMENT_SEQ'), 'Tournament 2', '2024-01-01', 1);
+    (nextval('TOURNAMENT_SEQ'), 'Tournament 2', '2024-01-01', 1, FALSE, 10000);
 
 INSERT INTO TOURNAMENT
-(ID, name, date, game_id)
+(ID, name, date, game_id, free, prizepool)
 VALUES
-    (nextval('TOURNAMENT_SEQ'), 'Tournament 3', '2024-01-01', 2);
+    (nextval('TOURNAMENT_SEQ'), 'Tournament 3', '2024-01-01', 2, FALSE, 10000);
 
 INSERT INTO TOURNAMENT
-(ID, name, date, game_id)
+(ID, name, date, game_id, free, prizepool)
 VALUES
-    (nextval('TOURNAMENT_SEQ'), 'Tournament 4', '2024-01-01', 2);
+    (nextval('TOURNAMENT_SEQ'), 'Tournament 4', '2024-01-01', 2, FALSE, 10000);
 
 INSERT INTO TOURNAMENT
-(ID, name, date, game_id)
+(ID, name, date, game_id, free, prizepool)
 VALUES
-    (nextval('TOURNAMENT_SEQ'), 'Tournament 5', '2024-01-01', 3);
+    (nextval('TOURNAMENT_SEQ'), 'Tournament 5', '2024-01-01', 3, FALSE, 10000);
 

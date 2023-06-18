@@ -13,15 +13,19 @@ public class Tournament {
     private Integer id;
     private String name;
     private Date date;
+    private boolean free;
+    private Double prizepool;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Game game;
 
-    public Tournament(Integer id, String name, Date date, Game game) {
+    public Tournament(Integer id, String name, Date date, Game game, boolean free, Double prizepool) {
         this.id = id;
         this.name = name;
         this.date = date;
         this.game = game;
+        this.free = free;
+        this.prizepool = prizepool;
     }
 
     public Tournament() {
@@ -57,5 +61,21 @@ public class Tournament {
 
     public void setGame(Game game) {
         this.game = game;
+    }
+
+    public boolean isFree() {
+        return free;
+    }
+
+    public void setFree(boolean free) {
+        this.free = free;
+    }
+
+    public Double getPrizepool() {
+        return prizepool;
+    }
+
+    public void setPrizepool(Double prizepool) {
+        this.prizepool = prizepool;
     }
 }

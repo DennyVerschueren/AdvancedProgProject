@@ -15,10 +15,38 @@
 <div th:replace="~{fragments/headerfooter :: header}">Header</div>
 
 <div class="container">
-    <h1 class="mt-3">Available Tournaments</h1>
-    <div sec:authorize="hasRole('ADMIN')">
-        <a th:href="@{/admin/tournamentnew}">new</a>
+    <div class="row">
+        <h1 class="mt-3">Available Tournaments</h1>
+        <div sec:authorize="hasRole('ADMIN')">
+            <a class="adminButton" th:href="@{/admin/tournamentnew}">new</a>
+        </div>
+
+        <div class="filters" th:unless="${showFilter}">
+            <div class="verticalmargin">
+                <a th:href="@{/tournaments/filter}" class="filterButton">filter</a>
+            </div>
+        </div>
+
+        <div class="filters" th:if="${showFilter}">
+            <div class="verticalmargin">
+                <a th:href="@{/tournaments}" class="filterButton">filter</a>
+                <form>
+                    <div class="onefilter">
+                        <input type="submit" value="search" class="buttonLook">
+                    </div>
+                    <div class="onefilter">
+                        <select id="game" name="game" th:value="*{game}">
+                            <option>
+                            <option th:each="game : ${games}"
+                                    th:text="${game.getName()}"
+                                    th:value="${game.getId()}">
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
         <div th:each="tournament :${tournaments}">
             <div class="card col mt-3" style="width: 18rem;">

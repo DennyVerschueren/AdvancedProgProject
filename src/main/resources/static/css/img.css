@@ -16,3 +16,9 @@ button:hover{
     text-decoration: none;
     color: gray;
 }
+
+.adminButton {
+    text-decoration: none;
+    color: lavender;
+    background-color: limegreen;
+}
