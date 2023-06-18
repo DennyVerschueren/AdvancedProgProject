@@ -16,10 +16,3 @@ button:hover{
     text-decoration: none;
     color: gray;
 }
-
-img {
-    width: 200px;
-    height: 250px;
-    object-fit: fill;
-}
-

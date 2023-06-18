@@ -25,6 +25,7 @@ public class admincontroller {
 
     @GetMapping("/tournamentedit/{id}")
     public String tournamentEdit(Model model, @PathVariable int id) {
+        model.addAttribute("tournament", tournamentRepository.findById(id));
         model.addAttribute("games", gameRepository.findAll());
         return "admin/tournamentedit";
     }
@@ -32,7 +33,7 @@ public class admincontroller {
     @PostMapping("/tournamentedit/{id}")
     public String tournamentEditPost(Model model, @PathVariable int id, @Valid Tournament tournament) {
         tournamentRepository.save(tournament);
-        return "redirect:/tournamentdetails/"+id;
+        return "redirect:/tournaments";
     }
 
     @GetMapping("/tournamentnew")
@@ -45,8 +46,7 @@ public class admincontroller {
 
     @PostMapping("/tournamentnew")
     public String tournamentNewPost(Model model, @Valid Tournament tournament) {
-
         tournamentRepository.save(tournament);
-        return "redirect:/tournamentdetails/"+tournament.getId();
+        return "redirect:/tournaments";
     }
 }
